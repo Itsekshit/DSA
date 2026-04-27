@@ -1,0 +1,22 @@
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+         int n =   isConnected.length;
+         int provinces  = 0;
+           boolean [] visi  = new boolean[n];
+          for( int i=0;i<n;i++){
+                 provinces++;
+                dfs(  i , isConnected , n , visi);
+               
+          }
+          return provinces;
+    }
+ private  void dfs(int src ,  int [][] arr , int  n ,   boolean  [] visi ){
+     visi[src] = true;
+     for( int i =0;i< n;i++){
+         if(  arr[src][i] == 1 && !visi[i]){
+             dfs( i , arr , n , visi );
+         }
+     }
+     
+ }
+}
